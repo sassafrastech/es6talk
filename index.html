@@ -5,29 +5,25 @@
 </head>
 <body>
   <!-- 1995 - Javascript 1.0 - Controlling applets! -->
-
   <!-- 1996 onward - Took on life of its own - image swapping! -->
-  <img src="main.gif" name="main" border="0" alt="Image Info" />
-  <a href="#" onmouseover="change('img1')" onmouseout="changeBack()">Image 1</a>
-  <a href="#" onmouseover="change('img2')" onmouseout="changeBack()">Image 2</a>
-  <a href="#" onmouseover="change('img3')" onmouseout="changeBack()">Image 3</a>
-  <script language="javascript">
-    if (document.images) {
-      var main = new Image(); main.src = "main.gif";
-      var img1 = new Image(); img1.src = "1.gif";
-      var img2 = new Image(); img2.src = "2.gif";
-      var img3 = new Image(); img3.src = "3.gif";
+
+  <!-- 1996 - JScript - Thanks Microsoft! -->
+  <script language="JScript">
+    var ExcelSheet = new ActiveXObject("Excel.Sheet");
+    ExcelSheet.Application.Visible = true;
+
+    for(i=1;i<11;i++) {
+      ExcelSheet.ActiveSheet.Cells(i,1).Value = i;
+      ExcelSheet.ActiveSheet.Cells(i,2).Value = 9;
+
+      var aString = new String("=A");
+      aString += i;
+      aString += "*B";
+      aString += i;
+      ExcelSheet.ActiveSheet.Cells(i,3).Value = aString;
     }
 
-    function change(imageName){
-      if (document.images) { document['main'].src = eval(imageName + ".src"); }
-    }
-
-    function changeBack(){
-      if (document.images) { document['main'].src = main.src; }
-    }
-
-    // Credit: https://www.kirupa.com/forum/showthread.php?217502-onMouseOver-Image-Swap
+    // Credit: http://www.java2s.com/Tutorial/JavaScript/0600__MS-JScript/ActiveXObject.htm
   </script>
 </body>
 </html>
