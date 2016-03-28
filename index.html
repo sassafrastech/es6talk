@@ -23,6 +23,13 @@
       divisor: 5,
       check: x => x % this.divisor == 0
     }
+
+    var divcheck2 = {
+      divisor: 5,
+      check: function(x) {
+        return x % this.divisor == 0;
+      }
+    }
   </script>
 </body>
 </html>
