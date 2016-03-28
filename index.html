@@ -8,32 +8,37 @@
   <!-- 1996+ - Took on life of its own - image swapping! -->
   <!-- 1996 - JScript - Thanks Microsoft! -->
   <!-- 1997 - ECMA standardizes core language features - EMCAScript v1 == JavaScript 1.3? -->
-
   <!-- 1999 - ECMAScript v3 == JavaScript 1.5?, lots of new features! -->
-  <script language="javascript">
-    // Regular expressions
-    if ('abc').match(/b/) { alert('match!'); }
 
-    // Try/catch
-    try {
-      var y = 1 / x;
-    } catch (err) {
-      alert('oops!');
-    }
+  <!-- 2009 - ECMAScript v5 - More new stuff -->
+  <script type="text/javascript">
+    'use strict'; // Strict mode
 
-    // Switch
-    switch (x) {
-      case 1:
-        alert('foo');
-        break;
-      case 2:
-        alert('bar');
-        break;
-      default:
-        alert('baz');
-    }
+    x = 123; // Error!
 
-    // ... and lots more.
+    // Getters and setters
+    var obj = {
+      c: 0,
+
+      get count() {
+        return this.c > 10 ? 10 : this.c;
+      },
+
+      set count(x) {
+        this.c = x < 0 ? 0 : x;
+      }
+    };
+
+    // Array methods
+    [1, 2, 3].forEach(function(x) { console.log(x); });
+    [1, 2, 3].map(function(x) { return x * x; });
+    [1, 2, 3].filter(function(x) { return x % 2 == 0; });
+    [1, 2, 3].reduce(function(result, x) { return result += x; });
+
+    // JSON
+    var obj = JSON.parse('{"a":"foo","b":"bar"}');
+
+    // and more ...
   </script>
 </body>
 </html>
