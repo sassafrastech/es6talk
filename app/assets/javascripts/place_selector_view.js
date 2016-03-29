@@ -19,16 +19,10 @@ class PlaceSelectorView {
     this.$('input').select2({
       ajax: {
         url: 'https://maps.googleapis.com/maps/api/geocode/json',
-        data: (term) => {
-          return { address: term }
-        },
-        results: (data) => {
-          return {
-            results: data.results.map((r, i) => {
-              return { id: i, text: r.formatted_address }
-            })
-          }
-        }
+        data: (term) => ({ address: term }),
+        results: (data) => ({
+          results: data.results.map((r, i) => ({ id: i, text: r.formatted_address }))
+        })
       }
     })
   }
