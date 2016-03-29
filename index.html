@@ -4,15 +4,16 @@
   <meta name="author" content="Tom Smyth, Sassafras Tech Collective">
 </head>
 <body>
-  <!-- Template Strings (Interpolation) -->
+  <!-- Object Literal Shortcuts -->
   <script type="text/javascript">
-    var str = 'interpolation';
-    var yay = () =>
-      console.log(`Thankfully we can now
-        finally
-        do
-        ${str.toUpperCase()}`);
-
+    var foo = 'bar';
+    var obj = {
+      foo,
+      shorty() {
+        return 123;
+      },
+      [`prop${(new Date()).getSeconds()}`]: 'partytime'
+    }
   </script>
 </body>
 </html>
