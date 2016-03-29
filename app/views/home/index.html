@@ -1,1 +1,10 @@
 <%= image_tag("logo-large-white-bg.png") %>
+
+<form id="place-selector">
+  <a href="#">Select a new place...</a>
+  <select style="display: none"></select>
+</form>
+
+<%= javascript_tag do %>
+  new PlaceSelectorView({ el: $('#place-selector') });
+<% end %>
