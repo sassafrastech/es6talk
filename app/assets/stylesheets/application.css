@@ -12,14 +12,21 @@
  *
  *= require_tree .
  *= require_self
+ *= require select2
  */
 
 body {
   text-align: center;
+  font-family: Lato;
 }
 
 img {
   width: 400px;
   display: block;
   margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.select2-container {
+  width: 400px;
 }
