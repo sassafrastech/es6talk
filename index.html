@@ -4,15 +4,14 @@
   <meta name="author" content="Tom Smyth, Sassafras Tech Collective">
 </head>
 <body>
-  <!-- Destructuring -->
+  <!-- Generators -->
   <script type="text/javascript">
-    var [a, b] = [123, 456];
-
-    var [c, , d] = [123, 456, 789];
-
-    var {foo: e, bar: f} = {bar: 20, foo: 30};
-
-    var {foo, bar} = {bar: 100, foo: 200};
+    function* sequence() {
+      var i = 0;
+      while (true) {
+        yield i++;
+      }
+    }
   </script>
 </body>
 </html>
