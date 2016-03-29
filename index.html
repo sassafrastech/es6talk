@@ -6,12 +6,32 @@
 <body>
   <!-- Generators -->
   <script type="text/javascript">
-    function* sequence() {
-      var i = 0;
-      while (true) {
-        var skip = yield i++;
-        if (skip) i++;
+
+    function geocode(lat, lng, callback) {
+      var url = 'https://maps.googleapis.com/maps/api/geocode/json';
+      var oReq = new XMLHttpRequest();
+      oReq.addEventListener('load', () => {
+        console.log(oReq.response);
+        callback();
+      });
+      oReq.open('GET', `${url}?latlng=${lat},${lng}`);
+      oReq.send();
+    }
+
+    // http://modernweb.com/2014/02/10/replacing-callbacks-with-es6-generators/
+    function run(generatorFunction) {
+      var generatorItr = generatorFunction(resume);
+      function resume(callbackValue) {
+        generatorItr.next(callbackValue);
       }
+      generatorItr.next()
+    }
+
+    function lookMaNoCallbacks() {
+      run(function* x(resume) {
+        yield geocode(0, 0, resume);
+        yield geocode(10, 10, resume);
+      });
     }
   </script>
 </body>
