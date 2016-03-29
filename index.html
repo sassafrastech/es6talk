@@ -4,38 +4,17 @@
   <meta name="author" content="Tom Smyth, Sassafras Tech Collective">
 </head>
 <body>
-  <!-- Classes -->
+  <!-- Default, Rest, Spread -->
   <script type="text/javascript">
-    class Polygon {
-      constructor(name) {
-        this.name = name;
-      }
-
-      area() {
-        throw 'Not implemented';
-      }
-
-      printVolume(length) {
-        var vol = this.area() * length;
-        console.log(`Volume of a ${this.name} prism of length ${length} is ${vol}`);
-      }
+    function say(word, options = {}) {
+      return options.shout ? word.toUpperCase() : word;
     }
 
-    class Triangle extends Polygon {
-      constructor(base, height) {
-        super("triangle");
-        this.base = base;
-        this.height = height;
-      }
-
-      static equilateral(sideLength) {
-        return new Triangle(sideLength, sideLength * Math.sqrt(3) / 2);
-      }
-
-      area() {
-        return 0.5 * this.base * this.height;
-      }
+    function avg(...nums) {
+      return nums.reduce((sum, n) => sum += n) / nums.length;
     }
+
+    var pairs = [[2, 5], [3, 7], [9, 2]];
   </script>
 </body>
 </html>
