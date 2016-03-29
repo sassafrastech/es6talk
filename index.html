@@ -4,39 +4,15 @@
   <meta name="author" content="Tom Smyth, Sassafras Tech Collective">
 </head>
 <body>
-  <!-- Arrows -->
+  <!-- Template Strings (Interpolation) -->
   <script type="text/javascript">
-    // Works
-    var vijay = {
-      _name: "Vijay",
-      _friends: ["Lisa", "Chan"],
-      printFriends: function() {
-        this._friends.forEach(f =>
-          console.log(this._name + " knows " + f));
-      }
-    }
+    var str = 'interpolation';
+    var yay = () =>
+      console.log(`Thankfully we can now
+        finally
+        do
+        ${str.toUpperCase()}`);
 
-    var nToNth = [1, 2, 3, 4, 5].map((n, i) => Math.pow(n, i));
-
-    // Doesn't work.
-    var divcheck = {
-      divisor: 5,
-      check: x => x % this.divisor == 0
-    }
-
-    var divcheck2 = {
-      divisor: 5,
-      check: function(x) {
-        return x % this.divisor == 0;
-      }
-    }
-
-    var divcheck3 = {
-      divisor: 5,
-      check(x) {
-        return x % this.divisor == 0;
-      }
-    }
   </script>
 </body>
 </html>
