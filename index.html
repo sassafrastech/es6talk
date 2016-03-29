@@ -9,7 +9,8 @@
     function* sequence() {
       var i = 0;
       while (true) {
-        yield i++;
+        var skip = yield i++;
+        if (skip) i++;
       }
     }
   </script>
