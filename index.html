@@ -4,15 +4,37 @@
   <meta name="author" content="Tom Smyth, Sassafras Tech Collective">
 </head>
 <body>
-  <!-- Object Literal Shortcuts -->
+  <!-- Classes -->
   <script type="text/javascript">
-    var foo = 'bar';
-    var obj = {
-      foo,
-      shorty() {
-        return 123;
-      },
-      [`prop${(new Date()).getSeconds()}`]: 'partytime'
+    class Polygon {
+      constructor(name) {
+        this.name = name;
+      }
+
+      area() {
+        throw 'Not implemented';
+      }
+
+      printVolume(length) {
+        var vol = this.area() * length;
+        console.log(`Volume of a ${this.name} prism of length ${length} is ${vol}`);
+      }
+    }
+
+    class Triangle extends Polygon {
+      constructor(base, height) {
+        super("triangle");
+        this.base = base;
+        this.height = height;
+      }
+
+      static equilateral(sideLength) {
+        return new Triangle(sideLength, sideLength * Math.sqrt(3) / 2);
+      }
+
+      area() {
+        return 0.5 * this.base * this.height;
+      }
     }
   </script>
 </body>
